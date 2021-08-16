@@ -1,0 +1,30 @@
+[System]
+Name='fuzzyroad'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[-1 1]
+NumMFs=3
+MF1='ern':'trapmf',[-2.2 -1.083 -0.1 0]
+MF2='erz':'trimf',[-0.04 0 0.04]
+MF3='erp':'trapmf',[0.00422832980972521 0.104228329809725 1.08822832980973 1.75422832980973]
+
+[Output1]
+Name='output1'
+Range=[-1 1]
+NumMFs=3
+MF1='dec':'trapmf',[-1.75 -1.083 -0.1 0]
+MF2='zer':'trimf',[-0.1 0 0.1]
+MF3='inc':'trapmf',[0 0.1 1.083 1.75]
+
+[Rules]

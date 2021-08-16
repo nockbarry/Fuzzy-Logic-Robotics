@@ -1,0 +1,33 @@
+[System]
+Name='fuzzyForceerrorwider'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=3
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='M2Velocity'
+Range=[-1 1]
+NumMFs=3
+MF1='vneg':'trapmf',[-1.75 -1.083 -0.01 0]
+MF2='vzero':'trimf',[-0.25 0 0.25]
+MF3='vpos':'trapmf',[0 0.01 1.083 1.75]
+
+[Output1]
+Name='Fr'
+Range=[-1 1]
+NumMFs=3
+MF1='dec':'trapmf',[-1.75 -1.083 -0.03 0]
+MF2='1':'trimf',[-0.15 0 0.15]
+MF3='inc':'trapmf',[0 0.03 1.083 1.75]
+
+[Rules]
+3, 1 (1) : 1
+2, 2 (1) : 1
+1, 3 (1) : 1

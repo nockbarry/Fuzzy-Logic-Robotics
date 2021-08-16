@@ -1,0 +1,47 @@
+[System]
+Name='fuzzy1error'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='input1'
+Range=[-1 1]
+NumMFs=3
+MF1='e_n_e_g':'trapmf',[-1.9 -1.1 -0.2 0]
+MF2='e_z':'trimf',[-0.1 0 0.1]
+MF3='e_p_o_s':'trapmf',[0 0.2 1.1 1.9]
+
+[Input2]
+Name='input2'
+Range=[-1 1]
+NumMFs=3
+MF1='edot_n_e_g':'trapmf',[-1.9 -1.1 -0.2 0]
+MF2='edot_z':'trimf',[-0.2 0 0.2]
+MF3='edot_p_o_s':'trapmf',[0 0.2 1.1 1.9]
+
+[Output1]
+Name='output1'
+Range=[-1 1]
+NumMFs=3
+MF1='dec':'trapmf',[-1.75 -1.083 -0.2 0]
+MF2='zer':'trimf',[-0.2 0 0.2]
+MF3='inc':'trapmf',[0 0.2 1.1 1.9]
+
+[Rules]
+3 1, 1 (1) : 1
+3 2, 3 (1) : 1
+3 3, 3 (1) : 1
+2 1, 1 (1) : 1
+2 3, 3 (1) : 1
+2 2, 2 (1) : 1
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 3 (1) : 1
